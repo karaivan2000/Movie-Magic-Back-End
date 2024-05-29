@@ -13,12 +13,13 @@ router.post(`/create`, (req, res) => {
     res.redirect(`/`);
 });
 
-router.get(`/movies/:movieId`, (req, res) => {
+router.get('/movies/:movieId', (req, res) => {
     const movieId = req.params.movieId;
     const movie = movieService.getOne(movieId);
-    movie.rating = new Array(Number(movie.rating)).fill(true);
-
-    res.render(`details`, {movie: movie});
+    
+    movie.rating = new Array(Number(movie.rating)).fill(`&#x2605;`);
+    
+    res.render('details', { movie });
 });
 
 module.exports = router;
