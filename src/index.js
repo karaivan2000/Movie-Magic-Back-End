@@ -15,9 +15,8 @@ app.use(routes);
 
 mongoose.connect(`mongodb://localhost:27017/magic-movies`)
     .then(() => {
-        console.log(`DB COnected`);
+        console.log(`DB Connected`);
+
         app.listen(port, () => console.log(`Server is listening on port ${port}...`));
     })
-    .catch(err => console.log((`Cab not connect to DB`)));
-
-
+    .catch(err => console.log('Cannot connect to DB'));
