@@ -1,4 +1,5 @@
-const jwt = require(`jsonwebtoken`);
+const jwt = require('jsonwebtoken');
+
 
 function sign(payload, secreteOrPrivateKey, options = {}) {
     const promise = new Promise((resolve, reject) => {
@@ -12,4 +13,8 @@ function sign(payload, secreteOrPrivateKey, options = {}) {
     });
 
     return promise;
+};
+
+module.exports = {
+    sign,
 };
