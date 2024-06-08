@@ -20,6 +20,13 @@ userSchema.pre(`save`, async function() {
     this.password = hash;
 });
 
+userSchema.virtual(`rePassword`)
+    .set(function(value){
+        if (value !== this.password) {
+            throw new MongooseError(`Passwords do not match`);
+        }
+    });
+
 const User = model('User', userSchema);
 
 module.exports = User;
